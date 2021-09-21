@@ -30,7 +30,7 @@ test:
     - aioredis.sentinel
   requires:
     - pip
-  command:
+  commands:
     - pip check
 
 about:
