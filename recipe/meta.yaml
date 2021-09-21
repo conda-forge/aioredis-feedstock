@@ -26,8 +26,6 @@ requirements:
 test:
   imports:
     - aioredis
-    - aioredis.commands
-    - aioredis.sentinel
   requires:
     - pip
   commands:
