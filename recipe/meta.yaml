@@ -17,17 +17,21 @@ build:
 requirements:
   host:
     - pip
-    - python >3.5
+    - python >=3.6
   run:
     - async-timeout
-    - hiredis
-    - python >3.5
+    - typing-extensions
+    - python >=3.6
 
 test:
   imports:
     - aioredis
     - aioredis.commands
     - aioredis.sentinel
+  requires:
+    - pip
+  command:
+    - pip check
 
 about:
   home: https://github.com/aio-libs/aioredis
