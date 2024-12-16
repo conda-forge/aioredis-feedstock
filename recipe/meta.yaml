@@ -6,28 +6,29 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: eaa51aaf993f2d71f54b70527c440437ba65340588afeb786cd87c55c89cd98e
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - async-timeout
     - typing-extensions
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
   imports:
     - aioredis
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
 
